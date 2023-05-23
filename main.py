@@ -2,6 +2,7 @@ from set_name import SetName
 from get_name import GetName
 from fly import Fly
 from sort import Sort
+import random
 
 
 # Créer le 23 mai 2023
@@ -10,7 +11,7 @@ from sort import Sort
 # 
 # main
 
-def init_sorcier(sorcier, name):
+def utiliser_sorcier(sorcier, name):
     set_name = SetName()
     get_name = GetName()
     fly = Fly()
@@ -43,11 +44,15 @@ def init_sorcier(sorcier, name):
 
     if reponse == "o":
         print(f"\nVous lancez un sort à {name}...")
-        print(f"{name} vous a lancé un sort en retour !!!")
+        if random.choice([True, False]):
+            print(f"{name} vous a lancé un sort en retour !!! ")
+            print(f"{name} est toujours maudit par Lord Voldemort.")
+        else:
+            print(f"{name} ne parvient pas à vous lancer un sort en retour. ")
+            print(f"{name} n'est plus maudit.")
 
     else:
         print(f"Suite à votre réponse, {name} se mit à rire.")
-
 
 class Sorcier:
     def __init__(self):
@@ -59,9 +64,9 @@ class Sorcier:
 
 if __name__ == "__main__":
     harry = Sorcier()
-    init_sorcier(harry, "Harry Potter")
+    utiliser_sorcier(harry, "Harry Potter")
 
     print("\n\n------------------------------------------------\n\n")
 
     bellatrix = Sorcier()
-    init_sorcier(bellatrix, "Bellatrix")
+    utiliser_sorcier(bellatrix, "Bellatrix")
